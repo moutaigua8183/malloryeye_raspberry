@@ -15,8 +15,8 @@ try:
 finally:
     ip = s.getsockname()[0]
 s.close()
-call(["printf", ip, " > /project/malloryeye_raspberry/raspberryIP.txt"]);
-call(["scp", "-i", "/home/pi/AWS_Service_Key.pem",
-      "/project/malloryeye_raspberry/raspberryIP.txt",
+call(["echo", ip, ">", "/home/pi/Project/malloryeye_raspberry/raspberryIP.txt"]);
+call(["scp", "-i", "/home/pi/Downloads/AWS_Service_Key.pem",
+      "/home/pi/Project/malloryeye_raspberry/raspberryIP.txt",
       "ubuntu@www.moutaigua.com:/tmp/raspberryIP.txt"])
-call(["rm", "/project/malloryeye_raspberry/raspberryIP.txt"]);
+call(["rm", "/home/pi/Project/malloryeye_raspberry/raspberryIP.txt"]);
