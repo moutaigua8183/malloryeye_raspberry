@@ -19,5 +19,7 @@ def sync(project):
               "cd /home/pi/Project/; "
               "rm -R -f malloryeye_raspberry; "
               "git clone https://github.com/moutaigua8183/malloryeye_raspberry.git; "
-              "chmod -R 0740 malloryeye_raspberry; "])
+              "chmod -R 0740 malloryeye_raspberry; "
+              "sudo cp malloryeye_raspberry/malloryeye_updateIP.py /etc/init.d/; "
+              "sudo chmod 755 /etc/init.d/malloryeye_updateIP.py; "])
     return

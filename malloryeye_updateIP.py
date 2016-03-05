@@ -4,8 +4,19 @@
 #__author__ = 'mou'
 
 
+### BEGIN INIT INFO
+# Provides:          malloryeye_updateIP.py
+# Required-Start:   $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
 from subprocess import call
 import socket
+import os
 
 
 
@@ -15,7 +26,7 @@ try:
 finally:
     ip = s.getsockname()[0]
 s.close()
-call(["echo", ip, ">", "/home/pi/Project/malloryeye_raspberry/raspberryIP.txt"]);
+os.system(["echo " + ip + "> /home/pi/Project/malloryeye_raspberry/raspberryIP.txt"]);
 call(["scp", "-i", "/home/pi/Downloads/AWS_Service_Key.pem",
       "/home/pi/Project/malloryeye_raspberry/raspberryIP.txt",
       "ubuntu@www.moutaigua.com:/tmp/raspberryIP.txt"])
